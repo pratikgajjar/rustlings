@@ -20,7 +20,7 @@ fn temp_file() -> String {
         .filter(|c| c.is_alphanumeric())
         .collect();
 
-    format!("./temp_{}_{}", process::id(), thread_id)
+    format!("./temp_{}_{thread_id}", process::id())
 }
 
 // The mode of the exercise.
@@ -121,7 +121,7 @@ impl Exercise {
                     r#"[package]
 name = "{}"
 version = "0.0.1"
-edition = "2018"
+edition = "2021"
 [[bin]]
 name = "{}"
 path = "{}.rs""#,
@@ -154,7 +154,7 @@ path = "{}.rs""#,
                 Command::new("cargo")
                     .args(&["clippy", "--manifest-path", CLIPPY_CARGO_TOML_PATH])
                     .args(RUSTC_COLOR_ARGS)
-                    .args(&["--", "-D", "warnings"])
+                    .args(&["--", "-D", "warnings","-D","clippy::float_cmp"])
                     .output()
             }
         }
@@ -217,8 +217,7 @@ path = "{}.rs""#,
         let matched_line_index = source
             .lines()
             .enumerate()
-            .filter_map(|(i, line)| if re.is_match(line) { Some(i) } else { None })
-            .next()
+            .find_map(|(i, line)| if re.is_match(line) { Some(i) } else { None })
             .expect("This should not happen at all");
 
         let min_line = ((matched_line_index as i32) - (CONTEXT as i32)).max(0) as usize;
