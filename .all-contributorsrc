@@ -1767,6 +1767,33 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "h4x5p4c3",
+      "name": "jones martin",
+      "avatar_url": "https://avatars.githubusercontent.com/u/66133688?v=4",
+      "profile": "http://h4x5p4c3.xyz",
+      "contributions": [
+        "content"
+      ]
+    },
+    {
+      "login": "cloppingemu",
+      "name": "cloppingemu",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12227963?v=4",
+      "profile": "https://github.com/cloppingemu",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "kevwan",
+      "name": "Kevin Wan",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1918356?v=4",
+      "profile": "http://github.com/zeromicro/go-zero",
+      "contributions": [
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 8,
